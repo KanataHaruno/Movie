@@ -11,11 +11,18 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField 'String', "apiKey", MOVIEDATABASE_API_KEY
+            resValue 'string', "api_key", MOVIEDATABASE_API_KEY
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 dependencies {
@@ -36,11 +43,9 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
 
-
 //Gson
 
     implementation 'com.google.code.gson:gson:2.8.5'
-
 
 // Architecture Components
 
@@ -48,4 +53,7 @@ dependencies {
 
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
 
-1}
+    implementation 'org.apache.commons:commons-lang3:3.6'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+}
